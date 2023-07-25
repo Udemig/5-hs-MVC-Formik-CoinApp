@@ -14,6 +14,7 @@ export function UserProvider({ children }) {
     setUser(signedUser);
   }, []);
 
+  // kullanıcıyı kaydeder
   const signUser = (newUser) => {
     // kullanııya id ekleme
     newUser.id = v4();
@@ -25,8 +26,16 @@ export function UserProvider({ children }) {
     setUser(newUser.id);
   };
 
+  //  çıkış yap
+  const logoutUser = () => {
+    // local'den silme
+    localStorage.removeItem('token');
+    // state'den kullanıcıyı kaldırma
+    setUser(null);
+  };
+
   return (
-    <UserContext.Provider value={{ user, signUser }}>
+    <UserContext.Provider value={{ user, signUser, logoutUser }}>
       {children}
     </UserContext.Provider>
   );

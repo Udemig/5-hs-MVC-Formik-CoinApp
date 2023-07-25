@@ -26,7 +26,7 @@ const LoginForm = () => {
       terms: false,
     },
     // form validayonlarını tanıtma
-    validationSchema: schema,
+    // validationSchema: schema,
 
     // formun gönderilme olayında çalışır
     onSubmit: async (values, actions) => {
